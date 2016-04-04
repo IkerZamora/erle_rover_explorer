@@ -27,8 +27,6 @@ def callback(data):
         angle= angle - data.angle_increment
 
     cv2.line(frame,(250, 250),(250+Vx,250+Vy),(0,0,255),3)
-    #cv2.line(frame,(250, 250),(0,0),(0,255,0),3)
-    #cv2.line(frame,(250, 250),(0,0),(0,255,0),3)
     cv2.circle(frame, (250, 250), 2, (255, 255, 0))
     ang = -(math.atan2(Vx,Vy)-3.1416)*180/3.1416
     if ang > 180:
@@ -40,7 +38,7 @@ def callback(data):
     
     yaw = 1500 + ang * 40 / 6
     throttle = 1900
-    
+        
     msg = OverrideRCIn()
     msg.channels[0] = yaw
     msg.channels[1] = 0
